@@ -1,5 +1,4 @@
 
-module.exports = function () {
-  console.log(process.cwd());
-  process.stdout.write('\nprompt > ');
+module.exports = (done) => {
+  done(process.cwd());
 }

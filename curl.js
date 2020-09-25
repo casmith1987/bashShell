@@ -1,11 +1,10 @@
 const request = require('request');
 
-module.exports = (x) => {
+module.exports = (x, done) => {
   request(x, (err, _, body)=> {
-    if (err) throw err;
+    if (err) done('Something went wrong!');
     else {
-      process.stdout.write(body);
-      process.stdout.write('\n\nprompt > ')
+      done(body);
     }
   })
 }

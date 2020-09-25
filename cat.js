@@ -1,12 +1,10 @@
 const fs = require('fs');
-const { builtinModules } = require('module');
 
-module.exports = (x) => {
+module.exports = (x, done) => {
   fs.readFile(x, 'utf8', (err, data)=>{
-    if (err) throw err;
+    if (err) done('Something went wrong!');
     else {
-      process.stdout.write(data);
-      process.stdout.write('\nprompt > ')
+      done(data);
     }
   })
 }
